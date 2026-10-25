@@ -1,0 +1,964 @@
+{
+ "mode": "predict",
+ "exact": true,
+ "ui": [
+  {
+   "screen": [
+    360,
+    240
+   ],
+   "status": "ok",
+   "steps": 153,
+   "elements": [
+    {
+     "z": 0,
+     "id": "bg",
+     "kind": "rect",
+     "box": [
+      0,
+      0,
+      360,
+      240
+     ],
+     "clip": [
+      0,
+      0,
+      360,
+      240
+     ],
+     "color": 14540253,
+     "visible_pixels": 35200,
+     "covered_by": [
+      "#0.1",
+      "cancel",
+      "login",
+      "login_label",
+      "ok",
+      "password",
+      "password_label",
+      "popup_bg",
+      "popup_close",
+      "popup_title",
+      "title"
+     ]
+    },
+    {
+     "z": 1,
+     "id": "#0.1",
+     "kind": "box",
+     "box": [
+      0,
+      0,
+      320,
+      160
+     ],
+     "clip": [
+      0,
+      0,
+      320,
+      160
+     ],
+     "color": 16316664,
+     "visible_pixels": 29656,
+     "covered_by": [
+      "cancel",
+      "login",
+      "login_label",
+      "ok",
+      "password",
+      "password_label",
+      "popup_bg",
+      "popup_close",
+      "popup_title",
+      "title"
+     ]
+    },
+    {
+     "z": 2,
+     "id": "title",
+     "kind": "text",
+     "box": [
+      12,
+      12,
+      144,
+      24
+     ],
+     "clip": [
+      12,
+      12,
+      144,
+      24
+     ],
+     "text": "Вход / Login",
+     "color": 1118481,
+     "scale": 2,
+     "visible_pixels": 3456,
+     "covered_by": []
+    },
+    {
+     "z": 3,
+     "id": "login_label",
+     "kind": "text",
+     "box": [
+      12,
+      44,
+      30,
+      12
+     ],
+     "clip": [
+      12,
+      44,
+      30,
+      12
+     ],
+     "text": "Логин",
+     "color": 3355443,
+     "scale": 1,
+     "visible_pixels": 360,
+     "covered_by": []
+    },
+    {
+     "z": 4,
+     "id": "login",
+     "kind": "rect",
+     "box": [
+      12,
+      58,
+      296,
+      18
+     ],
+     "clip": [
+      12,
+      58,
+      296,
+      18
+     ],
+     "color": 15724527,
+     "visible_pixels": 4488,
+     "covered_by": [
+      "popup_bg"
+     ]
+    },
+    {
+     "z": 5,
+     "id": "password_label",
+     "kind": "text",
+     "box": [
+      12,
+      84,
+      36,
+      12
+     ],
+     "clip": [
+      12,
+      84,
+      36,
+      12
+     ],
+     "text": "Пароль",
+     "color": 3355443,
+     "scale": 1,
+     "visible_pixels": 432,
+     "covered_by": []
+    },
+    {
+     "z": 6,
+     "id": "password",
+     "kind": "rect",
+     "box": [
+      12,
+      98,
+      296,
+      18
+     ],
+     "clip": [
+      12,
+      98,
+      296,
+      18
+     ],
+     "color": 15724527,
+     "visible_pixels": 2808,
+     "covered_by": [
+      "popup_bg",
+      "popup_close"
+     ]
+    },
+    {
+     "z": 7,
+     "id": "ok",
+     "kind": "button",
+     "box": [
+      12,
+      124,
+      42,
+      24
+     ],
+     "clip": [
+      12,
+      124,
+      42,
+      24
+     ],
+     "text": "Войти",
+     "color": 3368652,
+     "visible_pixels": 1008,
+     "covered_by": []
+    },
+    {
+     "z": 8,
+     "id": "cancel",
+     "kind": "button",
+     "box": [
+      62,
+      124,
+      48,
+      24
+     ],
+     "clip": [
+      62,
+      124,
+      48,
+      24
+     ],
+     "text": "Отмена",
+     "color": 3368652,
+     "visible_pixels": 1152,
+     "covered_by": []
+    },
+    {
+     "z": 9,
+     "id": "popup",
+     "kind": "clip",
+     "box": [
+      110,
+      70,
+      140,
+      56
+     ],
+     "clip": [
+      110,
+      70,
+      140,
+      56
+     ]
+    },
+    {
+     "z": 10,
+     "id": "popup_bg",
+     "kind": "rect",
+     "box": [
+      110,
+      70,
+      140,
+      56
+     ],
+     "clip": [
+      110,
+      70,
+      140,
+      56
+     ],
+     "color": 16765286,
+     "visible_pixels": 6040,
+     "covered_by": [
+      "popup_close",
+      "popup_title"
+     ]
+    },
+    {
+     "z": 11,
+     "id": "popup_title",
+     "kind": "text",
+     "box": [
+      118,
+      78,
+      102,
+      12
+     ],
+     "clip": [
+      118,
+      78,
+      102,
+      12
+     ],
+     "text": "Caps Lock включён",
+     "color": 6697728,
+     "scale": 1,
+     "visible_pixels": 1224,
+     "covered_by": []
+    },
+    {
+     "z": 12,
+     "id": "popup_close",
+     "kind": "button",
+     "box": [
+      118,
+      96,
+      24,
+      24
+     ],
+     "clip": [
+      118,
+      96,
+      24,
+      24
+     ],
+     "text": "OK",
+     "color": 3368652,
+     "visible_pixels": 576,
+     "covered_by": []
+    }
+   ],
+   "framebuffer_sha256": "60b4303b686b67bda115e0936cf2af4c9fbb5e117c1ef4fe22f5bf1b87617556",
+   "hits": [
+    {
+     "x": 245,
+     "y": 75,
+     "id": "popup_bg"
+    }
+   ],
+   "png": "docs/img/screen_360x240.png"
+  },
+  {
+   "screen": [
+    640,
+    360
+   ],
+   "status": "ok",
+   "steps": 153,
+   "elements": [
+    {
+     "z": 0,
+     "id": "bg",
+     "kind": "rect",
+     "box": [
+      0,
+      0,
+      640,
+      360
+     ],
+     "clip": [
+      0,
+      0,
+      640,
+      360
+     ],
+     "color": 14540253,
+     "visible_pixels": 134400,
+     "covered_by": [
+      "#0.1",
+      "cancel",
+      "login",
+      "login_label",
+      "ok",
+      "password",
+      "password_label",
+      "popup_bg",
+      "popup_close",
+      "popup_title",
+      "title"
+     ]
+    },
+    {
+     "z": 1,
+     "id": "#0.1",
+     "kind": "box",
+     "box": [
+      0,
+      0,
+      600,
+      160
+     ],
+     "clip": [
+      0,
+      0,
+      600,
+      160
+     ],
+     "color": 16316664,
+     "visible_pixels": 64376,
+     "covered_by": [
+      "cancel",
+      "login",
+      "login_label",
+      "ok",
+      "password",
+      "password_label",
+      "popup_bg",
+      "popup_close",
+      "popup_title",
+      "title"
+     ]
+    },
+    {
+     "z": 2,
+     "id": "title",
+     "kind": "text",
+     "box": [
+      12,
+      12,
+      144,
+      24
+     ],
+     "clip": [
+      12,
+      12,
+      144,
+      24
+     ],
+     "text": "Вход / Login",
+     "color": 1118481,
+     "scale": 2,
+     "visible_pixels": 3456,
+     "covered_by": []
+    },
+    {
+     "z": 3,
+     "id": "login_label",
+     "kind": "text",
+     "box": [
+      12,
+      44,
+      30,
+      12
+     ],
+     "clip": [
+      12,
+      44,
+      30,
+      12
+     ],
+     "text": "Логин",
+     "color": 3355443,
+     "scale": 1,
+     "visible_pixels": 360,
+     "covered_by": []
+    },
+    {
+     "z": 4,
+     "id": "login",
+     "kind": "rect",
+     "box": [
+      12,
+      58,
+      576,
+      18
+     ],
+     "clip": [
+      12,
+      58,
+      576,
+      18
+     ],
+     "color": 15724527,
+     "visible_pixels": 9528,
+     "covered_by": [
+      "popup_bg"
+     ]
+    },
+    {
+     "z": 5,
+     "id": "password_label",
+     "kind": "text",
+     "box": [
+      12,
+      84,
+      36,
+      12
+     ],
+     "clip": [
+      12,
+      84,
+      36,
+      12
+     ],
+     "text": "Пароль",
+     "color": 3355443,
+     "scale": 1,
+     "visible_pixels": 432,
+     "covered_by": []
+    },
+    {
+     "z": 6,
+     "id": "password",
+     "kind": "rect",
+     "box": [
+      12,
+      98,
+      576,
+      18
+     ],
+     "clip": [
+      12,
+      98,
+      576,
+      18
+     ],
+     "color": 15724527,
+     "visible_pixels": 7848,
+     "covered_by": [
+      "popup_bg",
+      "popup_close"
+     ]
+    },
+    {
+     "z": 7,
+     "id": "ok",
+     "kind": "button",
+     "box": [
+      12,
+      124,
+      42,
+      24
+     ],
+     "clip": [
+      12,
+      124,
+      42,
+      24
+     ],
+     "text": "Войти",
+     "color": 3368652,
+     "visible_pixels": 1008,
+     "covered_by": []
+    },
+    {
+     "z": 8,
+     "id": "cancel",
+     "kind": "button",
+     "box": [
+      62,
+      124,
+      48,
+      24
+     ],
+     "clip": [
+      62,
+      124,
+      48,
+      24
+     ],
+     "text": "Отмена",
+     "color": 3368652,
+     "visible_pixels": 1152,
+     "covered_by": []
+    },
+    {
+     "z": 9,
+     "id": "popup",
+     "kind": "clip",
+     "box": [
+      250,
+      70,
+      140,
+      56
+     ],
+     "clip": [
+      250,
+      70,
+      140,
+      56
+     ]
+    },
+    {
+     "z": 10,
+     "id": "popup_bg",
+     "kind": "rect",
+     "box": [
+      250,
+      70,
+      140,
+      56
+     ],
+     "clip": [
+      250,
+      70,
+      140,
+      56
+     ],
+     "color": 16765286,
+     "visible_pixels": 6040,
+     "covered_by": [
+      "popup_close",
+      "popup_title"
+     ]
+    },
+    {
+     "z": 11,
+     "id": "popup_title",
+     "kind": "text",
+     "box": [
+      258,
+      78,
+      102,
+      12
+     ],
+     "clip": [
+      258,
+      78,
+      102,
+      12
+     ],
+     "text": "Caps Lock включён",
+     "color": 6697728,
+     "scale": 1,
+     "visible_pixels": 1224,
+     "covered_by": []
+    },
+    {
+     "z": 12,
+     "id": "popup_close",
+     "kind": "button",
+     "box": [
+      258,
+      96,
+      24,
+      24
+     ],
+     "clip": [
+      258,
+      96,
+      24,
+      24
+     ],
+     "text": "OK",
+     "color": 3368652,
+     "visible_pixels": 576,
+     "covered_by": []
+    }
+   ],
+   "framebuffer_sha256": "385e8e3d263b3056fc8461d9f957e35a602dbf7d9775b19d7c2d76346a541fbb",
+   "hits": [
+    {
+     "x": 245,
+     "y": 75,
+     "id": "login"
+    }
+   ],
+   "png": "docs/img/screen_640x360.png"
+  },
+  {
+   "screen": [
+    240,
+    320
+   ],
+   "status": "ok",
+   "steps": 153,
+   "elements": [
+    {
+     "z": 0,
+     "id": "bg",
+     "kind": "rect",
+     "box": [
+      0,
+      0,
+      240,
+      320
+     ],
+     "clip": [
+      0,
+      0,
+      240,
+      320
+     ],
+     "color": 14540253,
+     "visible_pixels": 44800,
+     "covered_by": [
+      "#0.1",
+      "cancel",
+      "login",
+      "login_label",
+      "ok",
+      "password",
+      "password_label",
+      "popup_bg",
+      "popup_close",
+      "popup_title",
+      "title"
+     ]
+    },
+    {
+     "z": 1,
+     "id": "#0.1",
+     "kind": "box",
+     "box": [
+      0,
+      0,
+      200,
+      160
+     ],
+     "clip": [
+      0,
+      0,
+      200,
+      160
+     ],
+     "color": 16316664,
+     "visible_pixels": 14832,
+     "covered_by": [
+      "cancel",
+      "login",
+      "login_label",
+      "ok",
+      "password",
+      "password_label",
+      "popup_bg",
+      "popup_close",
+      "popup_title",
+      "title"
+     ]
+    },
+    {
+     "z": 2,
+     "id": "title",
+     "kind": "text",
+     "box": [
+      12,
+      12,
+      144,
+      24
+     ],
+     "clip": [
+      12,
+      12,
+      144,
+      24
+     ],
+     "text": "Вход / Login",
+     "color": 1118481,
+     "scale": 2,
+     "visible_pixels": 3456,
+     "covered_by": []
+    },
+    {
+     "z": 3,
+     "id": "login_label",
+     "kind": "text",
+     "box": [
+      12,
+      44,
+      30,
+      12
+     ],
+     "clip": [
+      12,
+      44,
+      30,
+      12
+     ],
+     "text": "Логин",
+     "color": 3355443,
+     "scale": 1,
+     "visible_pixels": 360,
+     "covered_by": []
+    },
+    {
+     "z": 4,
+     "id": "login",
+     "kind": "rect",
+     "box": [
+      12,
+      58,
+      176,
+      18
+     ],
+     "clip": [
+      12,
+      58,
+      176,
+      18
+     ],
+     "color": 15724527,
+     "visible_pixels": 2340,
+     "covered_by": [
+      "popup_bg"
+     ]
+    },
+    {
+     "z": 5,
+     "id": "password_label",
+     "kind": "text",
+     "box": [
+      12,
+      84,
+      36,
+      12
+     ],
+     "clip": [
+      12,
+      84,
+      36,
+      12
+     ],
+     "text": "Пароль",
+     "color": 3355443,
+     "scale": 1,
+     "visible_pixels": 432,
+     "covered_by": []
+    },
+    {
+     "z": 6,
+     "id": "password",
+     "kind": "rect",
+     "box": [
+      12,
+      98,
+      176,
+      18
+     ],
+     "clip": [
+      12,
+      98,
+      176,
+      18
+     ],
+     "color": 15724527,
+     "visible_pixels": 684,
+     "covered_by": [
+      "popup_bg",
+      "popup_close"
+     ]
+    },
+    {
+     "z": 7,
+     "id": "ok",
+     "kind": "button",
+     "box": [
+      12,
+      124,
+      42,
+      24
+     ],
+     "clip": [
+      12,
+      124,
+      42,
+      24
+     ],
+     "text": "Войти",
+     "color": 3368652,
+     "visible_pixels": 1000,
+     "covered_by": [
+      "popup_bg"
+     ]
+    },
+    {
+     "z": 8,
+     "id": "cancel",
+     "kind": "button",
+     "box": [
+      62,
+      124,
+      48,
+      24
+     ],
+     "clip": [
+      62,
+      124,
+      48,
+      24
+     ],
+     "text": "Отмена",
+     "color": 3368652,
+     "visible_pixels": 1056,
+     "covered_by": [
+      "popup_bg"
+     ]
+    },
+    {
+     "z": 9,
+     "id": "popup",
+     "kind": "clip",
+     "box": [
+      50,
+      70,
+      140,
+      56
+     ],
+     "clip": [
+      50,
+      70,
+      140,
+      56
+     ]
+    },
+    {
+     "z": 10,
+     "id": "popup_bg",
+     "kind": "rect",
+     "box": [
+      50,
+      70,
+      140,
+      56
+     ],
+     "clip": [
+      50,
+      70,
+      140,
+      56
+     ],
+     "color": 16765286,
+     "visible_pixels": 6040,
+     "covered_by": [
+      "popup_close",
+      "popup_title"
+     ]
+    },
+    {
+     "z": 11,
+     "id": "popup_title",
+     "kind": "text",
+     "box": [
+      58,
+      78,
+      102,
+      12
+     ],
+     "clip": [
+      58,
+      78,
+      102,
+      12
+     ],
+     "text": "Caps Lock включён",
+     "color": 6697728,
+     "scale": 1,
+     "visible_pixels": 1224,
+     "covered_by": []
+    },
+    {
+     "z": 12,
+     "id": "popup_close",
+     "kind": "button",
+     "box": [
+      58,
+      96,
+      24,
+      24
+     ],
+     "clip": [
+      58,
+      96,
+      24,
+      24
+     ],
+     "text": "OK",
+     "color": 3368652,
+     "visible_pixels": 576,
+     "covered_by": []
+    }
+   ],
+   "framebuffer_sha256": "fb7f6b564d74f973bda862c474869bbc226e6b10cf2f14b5a9cf47a3fe36a0af",
+   "hits": [
+    {
+     "x": 245,
+     "y": 75,
+     "id": null
+    }
+   ],
+   "png": "docs/img/screen_240x320.png"
+  }
+ ]
+}

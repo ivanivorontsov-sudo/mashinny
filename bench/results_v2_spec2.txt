@@ -1,0 +1,7 @@
+tokens cl100k_base: mash canonical 639 (1.27x), mash compact 461 (0.92x), python 503
+tokens o200k_base: mash canonical 639 (1.27x), mash compact 467 (0.93x), python 503
+bytes: mash 1481, python 1466
+predict==run: 357/357; aot==predict: 40/40; python set-order distinct outputs over 20 seeds: 20
+mash_free: syntax-valid 14/20, type-valid 7/20, pass 6/20, pass after 1 LLM repair 7/20, pass after `mash fix` (no LLM) 9/20, gen tokens 645
+mash_grammar: syntax-valid 19/20, type-valid 7/20, pass 6/20, pass after 1 LLM repair 7/20, pass after `mash fix` (no LLM) 9/20, gen tokens 875
+python: syntax-valid 20/20, type-valid 20/20, pass 19/20, pass after 1 LLM repair 20/20, pass after `mash fix` (no LLM) n/a, gen tokens 650

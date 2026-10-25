@@ -1,0 +1,7 @@
+fn collatz(n: Int, k: Int) -> Int
+  pre k >= 0
+  dec k
+  = if n == 1 || k == 0 then 0 else 1 + collatz(if n % 2 == 0 then n / 2 else 3 * n + 1, k - 1)
+
+fn main() -> Int
+  = sum(map(range(1, 3000), |i: Int| collatz(i, 1000)))

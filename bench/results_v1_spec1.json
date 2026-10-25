@@ -356,7 +356,8 @@
     "after_repair": "syntax",
     "gen_tokens": 52,
     "seconds": 6.9,
-    "code": "fn solve(xs: [Int]) -> Int\n  pre xs.len() > 0\n  dec xs.len()\n  = fold(xs, 0, |a: Int, x: Int| a + x * x)\n"
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs.len() > 0\n  dec xs.len()\n  = fold(xs, 0, |a: Int, x: Int| a + x * x)\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "count_even",
@@ -364,7 +365,8 @@
     "after_repair": "syntax",
     "gen_tokens": 60,
     "seconds": 5.1,
-    "code": "fn solve(xs: [Int]) -> Int\n  pre xs.len() > 0\n  dec xs.len()\n  = fold(xs, 0, |a: Int, x: Int| a + (x % 2 == 0) as Int)\n"
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs.len() > 0\n  dec xs.len()\n  = fold(xs, 0, |a: Int, x: Int| a + (x % 2 == 0) as Int)\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "max_list",
@@ -372,7 +374,8 @@
     "after_repair": "syntax",
     "gen_tokens": 69,
     "seconds": 5.9,
-    "code": "fn solve(xs: [Int]) -> Int {\n    if xs.is_empty() {\n        0\n    } else {\n        let mut max = xs[0];\n        for &x in xs.iter() {\n            if x > max {\n                max = x;\n            }\n        }\n        max\n    }\n}\n"
+    "code": "fn solve(xs: [Int]) -> Int {\n    if xs.is_empty() {\n        0\n    } else {\n        let mut max = xs[0];\n        for &x in xs.iter() {\n            if x > max {\n                max = x;\n            }\n        }\n        max\n    }\n}\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "reverse_str",
@@ -380,7 +383,8 @@
     "after_repair": "pass",
     "gen_tokens": 28,
     "seconds": 2.5,
-    "code": "fn solve(s: Str) -> Str\n  pre true\n  dec 1\n  = rev(s)\n"
+    "code": "fn solve(s: Str) -> Str\n  pre true\n  dec 1\n  = rev(s)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "palindrome",
@@ -388,7 +392,8 @@
     "after_repair": "syntax",
     "gen_tokens": 66,
     "seconds": 5.7,
-    "code": "fn solve(s: Str) -> Bool\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then true else s[0] == s[len(s) - 1] && solve(s[1..len(s) - 1])\n"
+    "code": "fn solve(s: Str) -> Bool\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then true else s[0] == s[len(s) - 1] && solve(s[1..len(s) - 1])\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "factorial",
@@ -396,7 +401,8 @@
     "after_repair": "pass",
     "gen_tokens": 44,
     "seconds": 4.0,
-    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 1 else n * solve(n - 1)\n"
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 1 else n * solve(n - 1)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "fib",
@@ -404,7 +410,8 @@
     "after_repair": "wrong",
     "gen_tokens": 58,
     "seconds": 5.0,
-    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 0 else if n == 1 then 1 else solve(n - 1) + solve(n - 2)\n"
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 0 else if n == 1 then 1 else solve(n - 1) + solve(n - 2)\n",
+    "after_autofix": "wrong"
    },
    {
     "task": "gcd",
@@ -412,7 +419,8 @@
     "after_repair": "syntax",
     "gen_tokens": 55,
     "seconds": 4.9,
-    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  dec b\n  = if a == 0 then b else solve(b % a, a)\n"
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  dec b\n  = if a == 0 then b else solve(b % a, a)\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "count_char",
@@ -420,7 +428,8 @@
     "after_repair": "syntax",
     "gen_tokens": 70,
     "seconds": 5.9,
-    "code": "fn solve(s: Str, c: Str) -> Int\n  pre c.len() == 1\n  dec s.len()\n  = if s == \"\" then 0 else if s[0] == c then 1 + solve(s[1..], c) else solve(s[1..], c)\n"
+    "code": "fn solve(s: Str, c: Str) -> Int\n  pre c.len() == 1\n  dec s.len()\n  = if s == \"\" then 0 else if s[0] == c then 1 + solve(s[1..], c) else solve(s[1..], c)\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "clamp",
@@ -428,7 +437,8 @@
     "after_repair": "wrong",
     "gen_tokens": 50,
     "seconds": 7.2,
-    "code": "fn solve(x: Int, lo: Int, hi: Int) -> Int\n  pre lo <= hi\n  dec x\n  = if x < lo then lo else if x > hi then hi else x\n"
+    "code": "fn solve(x: Int, lo: Int, hi: Int) -> Int\n  pre lo <= hi\n  dec x\n  = if x < lo then lo else if x > hi then hi else x\n",
+    "after_autofix": "pass"
    },
    {
     "task": "double_all",
@@ -436,7 +446,8 @@
     "after_repair": "syntax",
     "gen_tokens": 32,
     "seconds": 4.8,
-    "code": "fn solve(xs: [Int]) -> [Int] {\n    map(xs, |x: Int| x * 2)\n}\n"
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    map(xs, |x: Int| x * 2)\n}\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "positives",
@@ -444,7 +455,8 @@
     "after_repair": "syntax",
     "gen_tokens": 52,
     "seconds": 6.6,
-    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut result = Vec::new();\n    for x in xs {\n        if x > 0 {\n            result.push(x);\n        }\n    }\n    result\n}\n"
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut result = Vec::new();\n    for x in xs {\n        if x > 0 {\n            result.push(x);\n        }\n    }\n    result\n}\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "digit_sum",
@@ -452,7 +464,8 @@
     "after_repair": "type",
     "gen_tokens": 42,
     "seconds": 6.4,
-    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = sum(map(n, |x: Int| x % 10))\n"
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = sum(map(n, |x: Int| x % 10))\n",
+    "after_autofix": "type"
    },
    {
     "task": "power",
@@ -460,7 +473,8 @@
     "after_repair": "pass",
     "gen_tokens": 50,
     "seconds": 4.3,
-    "code": "fn solve(b: Int, e: Int) -> Int\n  pre e >= 0\n  dec e\n  = if e == 0 then 1 else b * solve(b, e - 1)\n"
+    "code": "fn solve(b: Int, e: Int) -> Int\n  pre e >= 0\n  dec e\n  = if e == 0 then 1 else b * solve(b, e - 1)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "is_prime",
@@ -468,7 +482,8 @@
     "after_repair": "syntax",
     "gen_tokens": 80,
     "seconds": 6.8,
-    "code": "fn solve(n: Int) -> Bool\n  pre n >= 2\n  dec n\n  = if n == 2 then true else if n % 2 == 0 then false else all(xs: [Int], |x: Int| x != 2 && x != n && n % x != 0) && solve(n - 1)\n"
+    "code": "fn solve(n: Int) -> Bool\n  pre n >= 2\n  dec n\n  = if n == 2 then true else if n % 2 == 0 then false else all(xs: [Int], |x: Int| x != 2 && x != n && n % x != 0) && solve(n - 1)\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "join_comma",
@@ -476,7 +491,8 @@
     "after_repair": "syntax",
     "gen_tokens": 58,
     "seconds": 5.0,
-    "code": "fn solve(xs: [Int]) -> Str {\n    let mut result = String::new();\n    for x in xs {\n        result.push_str(&str(x));\n        result.push(',');\n    }\n    result.pop(); // Remove the trailing comma\n    result\n}\n"
+    "code": "fn solve(xs: [Int]) -> Str {\n    let mut result = String::new();\n    for x in xs {\n        result.push_str(&str(x));\n        result.push(',');\n    }\n    result.pop(); // Remove the trailing comma\n    result\n}\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "abs_diff",
@@ -484,7 +500,8 @@
     "after_repair": "syntax",
     "gen_tokens": 45,
     "seconds": 4.0,
-    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  dec b\n  = abs(a - b)\n"
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  dec b\n  = abs(a - b)\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "mean_floor",
@@ -492,7 +509,8 @@
     "after_repair": "syntax",
     "gen_tokens": 64,
     "seconds": 5.5,
-    "code": "fn solve(xs: [Int]) -> Int {\n    if xs.is_empty() {\n        return 0;\n    }\n    let sum = xs.iter().sum::<Int>();\n    let count = xs.len();\n    let avg = sum / count;\n    return avg.floor() as Int;\n}\n"
+    "code": "fn solve(xs: [Int]) -> Int {\n    if xs.is_empty() {\n        return 0;\n    }\n    let sum = xs.iter().sum::<Int>();\n    let count = xs.len();\n    let avg = sum / count;\n    return avg.floor() as Int;\n}\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "sorted_desc",
@@ -500,7 +518,8 @@
     "after_repair": "syntax",
     "gen_tokens": 42,
     "seconds": 3.5,
-    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut xs = xs;\n    xs.sort_by(|a, b| b.cmp(a));\n    xs\n}\n"
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut xs = xs;\n    xs.sort_by(|a, b| b.cmp(a));\n    xs\n}\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "running_sum",
@@ -508,7 +527,8 @@
     "after_repair": "syntax",
     "gen_tokens": 56,
     "seconds": 5.0,
-    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut result = Vec::new();\n    let mut sum = 0;\n    for x in xs {\n        sum += x;\n        result.push(sum);\n    }\n    result\n}\n"
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut result = Vec::new();\n    let mut sum = 0;\n    for x in xs {\n        sum += x;\n        result.push(sum);\n    }\n    result\n}\n",
+    "after_autofix": "syntax"
    }
   ],
   "mash_grammar": [
@@ -518,7 +538,8 @@
     "after_repair": "type",
     "gen_tokens": 59,
     "seconds": 5.4,
-    "code": "fn solve(xs: [Int]) -> Int\n  pre true\n  dec len(xs)\n  = if len(xs) == 0 then 0 else (xs || 0) * (xs || 0) + solve(slice(xs, 1, len(xs)))\n"
+    "code": "fn solve(xs: [Int]) -> Int\n  pre true\n  dec len(xs)\n  = if len(xs) == 0 then 0 else (xs || 0) * (xs || 0) + solve(slice(xs, 1, len(xs)))\n",
+    "after_autofix": "type"
    },
    {
     "task": "count_even",
@@ -526,7 +547,8 @@
     "after_repair": "type",
     "gen_tokens": 44,
     "seconds": 3.8,
-    "code": "fn solve(xs: [Int]) -> Int\n  pre len(xs) > 0\n  dec len(xs)\n  = total(filter(xs, |x: Int| x % 2 == 0))\n"
+    "code": "fn solve(xs: [Int]) -> Int\n  pre len(xs) > 0\n  dec len(xs)\n  = total(filter(xs, |x: Int| x % 2 == 0))\n",
+    "after_autofix": "type"
    },
    {
     "task": "max_list",
@@ -534,7 +556,8 @@
     "after_repair": "type",
     "gen_tokens": 42,
     "seconds": 5.5,
-    "code": "fn solve(xs: [Int]) -> Int\n  pre xs != []\n  dec xs\n  = if len(xs) == 1 then xs else max(xs, solve(slice(xs, 1)))\n"
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs != []\n  dec xs\n  = if len(xs) == 1 then xs else max(xs, solve(slice(xs, 1)))\n",
+    "after_autofix": "type"
    },
    {
     "task": "reverse_str",
@@ -542,7 +565,8 @@
     "after_repair": "wrong",
     "gen_tokens": 50,
     "seconds": 4.2,
-    "code": "fn solve(s: Str) -> Str\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then s else solve(slice(s, 0, len(s) - 1))\n"
+    "code": "fn solve(s: Str) -> Str\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then s else solve(slice(s, 0, len(s) - 1))\n",
+    "after_autofix": "wrong"
    },
    {
     "task": "palindrome",
@@ -550,7 +574,8 @@
     "after_repair": "wrong",
     "gen_tokens": 41,
     "seconds": 3.7,
-    "code": "fn solve(s: Str) -> Bool\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then true else s == rev(s)\n"
+    "code": "fn solve(s: Str) -> Bool\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then true else s == rev(s)\n",
+    "after_autofix": "wrong"
    },
    {
     "task": "factorial",
@@ -558,7 +583,8 @@
     "after_repair": "pass",
     "gen_tokens": 40,
     "seconds": 3.4,
-    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 1 else n * solve(n - 1)\n"
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 1 else n * solve(n - 1)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "fib",
@@ -566,7 +592,8 @@
     "after_repair": "wrong",
     "gen_tokens": 54,
     "seconds": 4.7,
-    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 0 else if n == 1 then 1 else solve(n - 1) + solve(n - 2)\n"
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 0 else if n == 1 then 1 else solve(n - 1) + solve(n - 2)\n",
+    "after_autofix": "wrong"
    },
    {
     "task": "gcd",
@@ -574,7 +601,8 @@
     "after_repair": "pass",
     "gen_tokens": 47,
     "seconds": 3.9,
-    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  = if b == 0 then a else solve(b, a % b)\n"
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  = if b == 0 then a else solve(b, a % b)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "count_char",
@@ -582,7 +610,8 @@
     "after_repair": "wrong",
     "gen_tokens": 50,
     "seconds": 4.1,
-    "code": "fn solve(s: Str, c: Str) -> Int\n  pre c != \"\"\n  dec len(s)\n  = if len(s) == 0 then 0 else if s == c then 1 else solve(s, c)\n"
+    "code": "fn solve(s: Str, c: Str) -> Int\n  pre c != \"\"\n  dec len(s)\n  = if len(s) == 0 then 0 else if s == c then 1 else solve(s, c)\n",
+    "after_autofix": "wrong"
    },
    {
     "task": "clamp",
@@ -590,7 +619,8 @@
     "after_repair": "wrong",
     "gen_tokens": 45,
     "seconds": 3.8,
-    "code": "fn solve(x: Int, lo: Int, hi: Int) -> Int\n  pre lo <= hi\n  dec x\n  = if x < lo then lo else if x > hi then hi else x\n"
+    "code": "fn solve(x: Int, lo: Int, hi: Int) -> Int\n  pre lo <= hi\n  dec x\n  = if x < lo then lo else if x > hi then hi else x\n",
+    "after_autofix": "pass"
    },
    {
     "task": "double_all",
@@ -598,7 +628,8 @@
     "after_repair": "pass",
     "gen_tokens": 27,
     "seconds": 2.4,
-    "code": "fn solve(xs: [Int]) -> [Int]\n  = map(xs, |x: Int| x * 2)\n"
+    "code": "fn solve(xs: [Int]) -> [Int]\n  = map(xs, |x: Int| x * 2)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "positives",
@@ -606,7 +637,8 @@
     "after_repair": "type",
     "gen_tokens": 36,
     "seconds": 3.1,
-    "code": "fn solve(xs: [Int]) -> [Int]\n  pre xs != []\n  dec xs\n  = filter(xs, |x: Int| x > 0)\n"
+    "code": "fn solve(xs: [Int]) -> [Int]\n  pre xs != []\n  dec xs\n  = filter(xs, |x: Int| x > 0)\n",
+    "after_autofix": "type"
    },
    {
     "task": "digit_sum",
@@ -614,7 +646,8 @@
     "after_repair": "type",
     "gen_tokens": 38,
     "seconds": 3.2,
-    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = sum(map(n, |x: Int| x % 10))\n"
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = sum(map(n, |x: Int| x % 10))\n",
+    "after_autofix": "type"
    },
    {
     "task": "power",
@@ -622,7 +655,8 @@
     "after_repair": "pass",
     "gen_tokens": 46,
     "seconds": 3.9,
-    "code": "fn solve(b: Int, e: Int) -> Int\n  pre e >= 0\n  dec e\n  = if e == 0 then 1 else b * solve(b, e - 1)\n"
+    "code": "fn solve(b: Int, e: Int) -> Int\n  pre e >= 0\n  dec e\n  = if e == 0 then 1 else b * solve(b, e - 1)\n",
+    "after_autofix": "pass"
    },
    {
     "task": "is_prime",
@@ -630,7 +664,8 @@
     "after_repair": "syntax",
     "gen_tokens": 256,
     "seconds": 20.2,
-    "code": "fn solve(n: Int) -> Bool\n  pre n > 0\n  dec n\n  = if n == 2 then true else if n % 2 == 0 then false else if n == 3 then true else if n % 3 == 0 then false else if n == 5 then true else if n % 5 == 0 then false else if n == 7 then true else if n % 7 == 0 then false else if n == 11 then true else if n % 11 == 0 then false else if n == 13 then true else if n % 13 == 0 then false else if n == 17 then true else if n % 17 == 0 then false else if n == 19 then true else if n % 19 == 0 then false else if n == 23 then true else if n % 23 == 0 then false else if n == 29 then true else if n % 29 == 0 then false else if n == 31 then true else if n % 31 == 0 then false else if n == 37 then true else if n\n"
+    "code": "fn solve(n: Int) -> Bool\n  pre n > 0\n  dec n\n  = if n == 2 then true else if n % 2 == 0 then false else if n == 3 then true else if n % 3 == 0 then false else if n == 5 then true else if n % 5 == 0 then false else if n == 7 then true else if n % 7 == 0 then false else if n == 11 then true else if n % 11 == 0 then false else if n == 13 then true else if n % 13 == 0 then false else if n == 17 then true else if n % 17 == 0 then false else if n == 19 then true else if n % 19 == 0 then false else if n == 23 then true else if n % 23 == 0 then false else if n == 29 then true else if n % 29 == 0 then false else if n == 31 then true else if n % 31 == 0 then false else if n == 37 then true else if n\n",
+    "after_autofix": "syntax"
    },
    {
     "task": "join_comma",
@@ -638,7 +673,8 @@
     "after_repair": "type",
     "gen_tokens": 28,
     "seconds": 2.5,
-    "code": "fn solve(xs: [Int]) -> Str\n  = join(chars(map(xs, |x: Int| str(x))), \",\")\n"
+    "code": "fn solve(xs: [Int]) -> Str\n  = join(chars(map(xs, |x: Int| str(x))), \",\")\n",
+    "after_autofix": "type"
    },
    {
     "task": "abs_diff",
@@ -646,7 +682,8 @@
     "after_repair": "wrong",
     "gen_tokens": 44,
     "seconds": 3.6,
-    "code": "fn solve(a: Int, b: Int) -> Int\n  pre abs(a) >= abs(b)\n  dec a\n  = if a == b then 0 else abs(a) - abs(b)\n"
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre abs(a) >= abs(b)\n  dec a\n  = if a == b then 0 else abs(a) - abs(b)\n",
+    "after_autofix": "wrong"
    },
    {
     "task": "mean_floor",
@@ -654,7 +691,8 @@
     "after_repair": "type",
     "gen_tokens": 53,
     "seconds": 4.5,
-    "code": "fn solve(xs: [Int]) -> Int\n  pre xs != []\n  dec len(xs)\n  = if len(xs) == 1 then xs(0) else (xs(0) + solve(slice(xs, 1))) / len(xs)\n"
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs != []\n  dec len(xs)\n  = if len(xs) == 1 then xs(0) else (xs(0) + solve(slice(xs, 1))) / len(xs)\n",
+    "after_autofix": "type"
    },
    {
     "task": "sorted_desc",
@@ -662,7 +700,8 @@
     "after_repair": "type",
     "gen_tokens": 68,
     "seconds": 6.1,
-    "code": "fn solve(xs: [Int]) -> [Int]\n  pre true\n  dec len(xs)\n  = if len(xs) == 0 then []\n  else let max = max(xs)\n        ==[max] ++ solve(slice(xs, 0, len(xs) - 1))  ; 100% pure\n"
+    "code": "fn solve(xs: [Int]) -> [Int]\n  pre true\n  dec len(xs)\n  = if len(xs) == 0 then []\n  else let max = max(xs)\n        ==[max] ++ solve(slice(xs, 0, len(xs) - 1))  ; 100% pure\n",
+    "after_autofix": "type"
    },
    {
     "task": "running_sum",
@@ -670,7 +709,8 @@
     "after_repair": "syntax",
     "gen_tokens": 256,
     "seconds": 20.1,
-    "code": "fn solve(xs: [Int]) -> [Int]\n  pre len(xs) > 0\n  dec len(xs)\n  = let acc = 0\n    == [acc]\n    == [acc + xs(0)]\n    == [acc + xs(0) + xs(1)]\n    == [acc + xs(0) + xs(1) + xs(2)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5) + xs(6)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5) + xs(6) + xs\n"
+    "code": "fn solve(xs: [Int]) -> [Int]\n  pre len(xs) > 0\n  dec len(xs)\n  = let acc = 0\n    == [acc]\n    == [acc + xs(0)]\n    == [acc + xs(0) + xs(1)]\n    == [acc + xs(0) + xs(1) + xs(2)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5) + xs(6)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5) + xs(6) + xs\n",
+    "after_autofix": "syntax"
    }
   ],
   "python": [

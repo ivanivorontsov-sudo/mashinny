@@ -1,6 +1,11 @@
 name: windows-build
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        required: true
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: windows-latest
@@ -16,7 +21,7 @@ jobs:
           MASH_FUZZ: "100"
       - run: pyinstaller --onefile --name mash --paths . --collect-submodules mash --add-data "mash/runtime/rt.h;mash/runtime" --collect-all z3 tools/mash_entry.py
       - run: dist\mash.exe predict examples\gcd.pn
-      - uses: actions/upload-artifact@v4
-        with:
-          name: mash-windows-x64
-          path: dist/mash.exe
+      - run: Copy-Item dist\mash.exe mash-windows-x64.exe
+      - run: gh release upload ${{ inputs.tag }} mash-windows-x64.exe --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}

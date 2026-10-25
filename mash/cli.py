@@ -80,7 +80,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(prog="mash", description="Машинный: язык для ИИ")
     ap.add_argument("--version", action="version", version=VERSION)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for n in ("check", "fmt", "to-bin", "from-bin", "prove", "hash", "run", "predict", "to-json", "aot", "to-c"):
+    for n in ("fix", "check", "fmt", "to-bin", "from-bin", "prove", "hash", "run", "predict", "to-json", "aot", "to-c"):
         p = sub.add_parser(n)
         p.add_argument("file")
         if n in ("run", "predict"):
@@ -93,7 +93,7 @@ def main(argv=None):
             p.add_argument("--hit", action="append", default=[])
             p.add_argument("--png-dir")
             p.add_argument("--map", action="store_true")
-        if n in ("to-bin", "from-bin", "fmt", "aot", "to-c", "to-json"):
+        if n in ("to-bin", "from-bin", "fmt", "aot", "to-c", "to-json", "fix"):
             p.add_argument("-o", "--output")
         if n in ("fmt", "from-bin"):
             p.add_argument("--compact", action="store_true")
@@ -112,6 +112,18 @@ def main(argv=None):
         from .grammar import gbnf, json_schema
         sys.stdout.write(gbnf() if a.format == "gbnf" else json.dumps(json_schema(), indent=1) + "\n")
         return 0
+
+    if a.cmd == "fix":
+        from .fix import autofix
+        try:
+            prog = load(a.file)
+        except (SyntaxErr, BinErr) as e:
+            return out({"ok": False, "errors": [e.to_json()]}, 1)
+        prog, applied, rest = autofix(prog)
+        text = fmt(prog)
+        if a.output:
+            open(a.output, "w", encoding="utf-8").write(text)
+        return out({"ok": not rest, "applied": applied, "errors": rest, "text": text}, 0 if not rest else 1)
 
     prog, errs = load_checked(a.file)
     if prog is None or errs:

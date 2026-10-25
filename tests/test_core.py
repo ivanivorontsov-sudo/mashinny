@@ -192,6 +192,17 @@ class Semantics(unittest.TestCase):
         self.assertEqual([e["arg"] for e in r["effects"]], ["a", "b"])
 
 
+class Fix(unittest.TestCase):
+    def test_autofix(self):
+        from mash.fix import autofix
+        p, applied, rest = autofix(parse("fn g(a: Int, b: Int) -> Int = if b == 0 then a else g(b, a % b) fn fib(n: Int) -> Int = if n < 2 then n else fib(n - 1) + fib(n - 2) fn h(count: Int) -> Int = coutn * 2"))
+        self.assertEqual(rest, [])
+        acts = sorted(a["action"] for a in applied)
+        self.assertIn("rename coutn -> count", acts)
+        self.assertEqual(execute(p, "fib", [10])["value"], 55)
+        self.assertEqual(execute(p, "g", [1071, 462])["value"], 21)
+
+
 class Prove(unittest.TestCase):
     def test_examples(self):
         from mash.prove import prove

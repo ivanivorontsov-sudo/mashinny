@@ -176,7 +176,28 @@ def main():
     summarize(out)
 
 
+def fixed_status(code, tests):
+    from mash.fix import autofix
+    try:
+        prog = parse(code)
+    except SyntaxErr:
+        return "syntax"
+    prog, applied, rest = autofix(prog)
+    if rest:
+        return "type"
+    return run_mash(fmt(prog), tests)[0]
+
+
+def add_autofix(out):
+    tests = {t["id"]: t["tests"] for t in TASKS}
+    for mode, res in out.get("llm", {}).items():
+        if mode.startswith("mash"):
+            for r in res:
+                r["after_autofix"] = r["status"] if r["status"] == "pass" else fixed_status(r["code"], tests[r["task"]])
+
+
 def summarize(out):
+    add_autofix(out)
     lines = []
     T = out["tokens"]
     for enc in ("cl100k_base", "o200k_base"):
@@ -191,12 +212,20 @@ def summarize(out):
         c = lambda k, v: sum(1 for r in res if r[k] == v)
         valid = sum(1 for r in res if r["status"] not in ("syntax",))
         typed = sum(1 for r in res if r["status"] not in ("syntax", "type"))
-        lines.append("%s: syntax-valid %d/%d, type-valid %d/%d, pass %d/%d, pass after 1 repair %d/%d, gen tokens %d" % (
-            mode, valid, n, typed, n, c("status", "pass"), n, c("after_repair", "pass"), n, sum(r["gen_tokens"] for r in res)))
+        lines.append("%s: syntax-valid %d/%d, type-valid %d/%d, pass %d/%d, pass after 1 LLM repair %d/%d, pass after `mash fix` (no LLM) %s, gen tokens %d" % (
+            mode, valid, n, typed, n, c("status", "pass"), n, c("after_repair", "pass"), n,
+            ("%d/%d" % (c("after_autofix", "pass"), n)) if mode.startswith("mash") else "n/a", sum(r["gen_tokens"] for r in res)))
     s = "\n".join(lines)
     open(os.path.join(HERE, "results%s.txt" % TAG), "w").write(s + "\n")
     print(s)
 
 
 if __name__ == "__main__":
-    main()
+    if "--summarize" in sys.argv:
+        f = sys.argv[sys.argv.index("--summarize") + 1]
+        TAG = os.path.basename(f)[len("results"):-len(".json")]
+        o = json.load(open(f))
+        summarize(o)
+        json.dump(o, open(f, "w"), ensure_ascii=False, indent=1)
+    else:
+        main()
