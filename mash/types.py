@@ -76,6 +76,7 @@ class Checker:
         self.funcs = {}
         self.errors = []
         self.calls = {}
+        self.types = {}
 
     def err(self, *a, **k):
         raise TypeErr(*a, **k)
@@ -119,6 +120,8 @@ class Checker:
             self.err("E-DUP", "duplicate parameter", f.pos, "fn " + f.name)
         env = dict(f.params)
         p = "fn " + f.name
+        for n in names:
+            self.binder(n, f.pos, p)
         if f.pre is not None:
             self.expect(self.ex(f.pre, env, p + "/pre", False), BOOL, f.pre, p + "/pre")
         rt = self.ex(f.body, env, p + "/body", "io" in f.effects)
@@ -134,6 +137,15 @@ class Checker:
             self.err("E-TYPE", "type mismatch", node.pos, path, expected=str(want), got=str(got))
 
     def ex(self, e, env, path, io):
+        t = self.ex0(e, env, path, io)
+        self.types[id(e)] = t
+        return t
+
+    def binder(self, name, pos, path):
+        if name == "result":
+            self.err("E-RESERVED", "`result` is reserved for postconditions", pos, path, got=name, fix="rename binder")
+
+    def ex0(self, e, env, path, io):
         if isinstance(e, Lit):
             v = e.val
             return UNIT if v is None else BOOL if isinstance(v, bool) else STR if isinstance(v, str) else INT
@@ -182,6 +194,7 @@ class Checker:
             self.expect(te, tt, e.e, path + "/else")
             return tt
         if isinstance(e, Let):
+            self.binder(e.name, e.pos, path)
             t = self.ex(e.val, env, path + "/let " + e.name, io)
             e2 = dict(env); e2[e.name] = t
             return self.ex(e.body, e2, path + "/in", io)
@@ -196,6 +209,8 @@ class Checker:
             self.err("E-TYPE", "expected lambda", e.pos, path, expected="|x: T| expr")
         if [t for _, t in e.params] != ptys:
             self.err("E-TYPE", "lambda parameter types", e.pos, path, expected=", ".join(map(str, ptys)), got=", ".join(str(t) for _, t in e.params))
+        for n, _ in e.params:
+            self.binder(n, e.pos, path)
         e2 = dict(env)
         e2.update(dict(e.params))
         return self.ex(e.body, e2, path + "/lambda", False)
