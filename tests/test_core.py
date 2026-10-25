@@ -11,7 +11,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tests"))
 
 from mash.ast import *
-from mash.syntax import parse, fmt, SyntaxErr
+from mash.syntax import parse, fmt, compact, SyntaxErr
 from mash.types import check, Checker
 from mash.binfmt import encode, decode, hashes, BinErr, uleb
 from mash.interp import execute
@@ -73,6 +73,9 @@ class RoundTrip(unittest.TestCase):
             self.assertEqual(encode(p2), b)
             self.assertEqual(fmt(decode(b)), t)
             self.assertEqual(encode(decode(b)), b)
+            c = compact(p)
+            self.assertEqual(encode(parse(c)), b)
+            self.assertEqual(compact(decode(b)), c)
             j = json.loads(json.dumps(astjson.prog_j(p2)))
             self.assertEqual(encode(astjson.j_prog(j)), b)
 

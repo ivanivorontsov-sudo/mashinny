@@ -1,0 +1,19 @@
+Mashinny language (pure, total, typed). Program = functions:
+fn NAME(p: Type, ...) -> Type [!io] [pre BOOL] [post BOOL] [dec INT] = EXPR
+Types: Int (bignum), Bool, Str, Unit, [T] (list).
+EXPR: literals 1 -2 true false "s" [1, 2]; variables; f(a, b); if C then A else B; let x = E; BODY
+Operators: + - * / % (floor division) == != < <= > >= && || ! ; ++ concatenates Str or lists.
+No loops, no mutation, no statements. Use recursion with `dec N` (N decreases each call) or builtins:
+len(xs|s) get(xs, i) push(xs, x) slice(xs|s, a, b) rev(xs|s) range(a, b) sum(xs) sort(xs) join(strs, sep) chars(s) str(n) abs(n) min(a, b) max(a, b)
+map(xs, |x: T| E) filter(xs, |x: T| BOOL) fold(xs, init, |acc: A, x: T| E)
+Examples:
+fn fact(n: Int) -> Int
+  pre n >= 0
+  dec n
+  = if n == 0 then 1 else n * fact(n - 1)
+fn evens(xs: [Int]) -> [Int]
+  = filter(xs, |x: Int| x % 2 == 0)
+fn total(xs: [Int]) -> Int
+  = fold(xs, 0, |a: Int, x: Int| a + x)
+fn shout(s: Str) -> Str
+  = s ++ "!"

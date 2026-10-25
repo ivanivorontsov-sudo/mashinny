@@ -306,3 +306,26 @@ def fmt_func(f):
 
 def fmt(prog):
     return "\n".join(fmt_func(f) for f in canon(prog).funcs)
+
+
+WORDY = ("id", "kw", "int")
+
+
+def compact(prog):
+    out = []
+    for f in canon(prog).funcs:
+        toks = lex(fmt_func(f))[:-1]
+        s = ""
+        prev = None
+        for k, t, _ in toks:
+            if prev is not None:
+                pk, pt = prev
+                need = pk == "kw" or k == "kw" or (pk in WORDY and k in WORDY)
+                if not need:
+                    probe = lex(pt + t)
+                    need = [(a, b) for a, b, _ in probe[:-1]] != [(pk, pt), (k, t)]
+                s += " " if need else ""
+            s += t
+            prev = (k, t)
+        out.append(s)
+    return "\n".join(out) + "\n"

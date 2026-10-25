@@ -4,7 +4,7 @@ import os
 import sys
 import threading
 
-from .syntax import parse, fmt, SyntaxErr
+from .syntax import parse, fmt, compact, SyntaxErr
 from .types import check
 from .binfmt import encode, decode, hashes, BinErr
 from .interp import execute, DEFAULT_FUEL
@@ -95,6 +95,8 @@ def main(argv=None):
             p.add_argument("--map", action="store_true")
         if n in ("to-bin", "from-bin", "fmt", "aot", "to-c", "to-json"):
             p.add_argument("-o", "--output")
+        if n in ("fmt", "from-bin"):
+            p.add_argument("--compact", action="store_true")
         if n == "fmt":
             p.add_argument("--check", action="store_true")
         if n == "prove":
@@ -120,7 +122,7 @@ def main(argv=None):
     if a.cmd == "hash":
         return out(hashes(prog))
     if a.cmd == "fmt":
-        text = fmt(prog)
+        text = compact(prog) if a.compact else fmt(prog)
         if a.check:
             same = open(a.file, encoding="utf-8").read() == text
             return out({"ok": same, "canonical": same}, 0 if same else 1)
@@ -130,7 +132,7 @@ def main(argv=None):
             sys.stdout.write(text)
         return 0
     if a.cmd == "from-bin":
-        text = fmt(prog)
+        text = compact(prog) if a.compact else fmt(prog)
         if a.output:
             open(a.output, "w", encoding="utf-8").write(text)
         else:
