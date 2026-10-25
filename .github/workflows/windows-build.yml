@@ -1,0 +1,22 @@
+name: windows-build
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install z3-solver pyinstaller
+      - run: python -m unittest tests.test_core
+        env:
+          MASH_FUZZ: "100"
+      - run: pyinstaller --onefile --name mash --add-data "mash/runtime/rt.h;mash/runtime" --collect-all z3 tools/mash_entry.py
+      - run: dist\mash.exe predict examples\gcd.pn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mash-windows-x64
+          path: dist/mash.exe
