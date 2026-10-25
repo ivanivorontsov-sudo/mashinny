@@ -100,6 +100,8 @@ class Checker:
                 if g != f.name and f.name in self.reach(g):
                     self.errors.append(TypeErr("E-MUTREC", "mutual recursion is not allowed", f.pos, "fn " + f.name, got=f.name + " <-> " + g, fix="merge into one self-recursive function with dec").to_json())
                     break
+            if f.dec is not None and f.name not in self.calls.get(f.name, ()):
+                self.errors.append(TypeErr("E-DECNOTREC", "dec is only allowed on recursive functions", f.dec.pos, "fn " + f.name + "/dec", fix="remove the `dec` clause").to_json())
             if f.name in self.calls.get(f.name, ()) and f.dec is None:
                 self.errors.append(TypeErr("E-NODEC", "recursive function needs a dec measure", f.pos, "fn " + f.name, expected="dec <Int expression decreasing at each recursive call>", fix="add `dec <param>`").to_json())
         return self.errors

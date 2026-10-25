@@ -1,4 +1,0 @@
-tokens cl100k_base: mash canonical 639 (1.27x), mash compact 466 (0.93x), python 503
-tokens o200k_base: mash canonical 639 (1.27x), mash compact 472 (0.94x), python 503
-bytes: mash 1481, python 1466
-predict==run: 357/357; aot==predict: 40/40; python set-order distinct outputs over 20 seeds: 20

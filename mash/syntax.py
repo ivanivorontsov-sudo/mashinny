@@ -186,6 +186,15 @@ class Parser:
         return self.atom()
 
     def atom(self):
+        e = self.atom0()
+        while self.peek()[1] == "[" and self.peek()[0] == "op":
+            pos = self.next()[2]
+            i = self.expr()
+            self.expect("]")
+            e = Call(pos, "get", [e, i])
+        return e
+
+    def atom0(self):
         tok = self.next()
         k, s, pos = tok
         if k == "int":
@@ -259,11 +268,13 @@ def fmt_e(e, ctx=0, ind=""):
             return "false"
         if isinstance(v, str):
             return esc(v)
-        if v < 0 and ctx >= 5:
+        if v < 0 and ctx >= 5 or isinstance(v, int) and v < 0 and ctx >= 8:
             return "(" + str(v) + ")"
         return str(v)
     if isinstance(e, Var):
         return e.name
+    if isinstance(e, Call) and e.fn == "get" and len(e.args) == 2:
+        return fmt_e(e.args[0], 8, ind) + "[" + fmt_e(e.args[1], 0, ind) + "]"
     if isinstance(e, Call):
         return e.fn + "(" + ", ".join(fmt_e(a, 0, ind) for a in e.args) + ")"
     if isinstance(e, ListE):
@@ -274,7 +285,7 @@ def fmt_e(e, ctx=0, ind=""):
             inner = "(" + inner + ")"
         if e.op == "-" and inner.startswith("-"):
             inner = "(" + inner + ")"
-        return e.op + inner
+        return "(" + e.op + inner + ")" if ctx >= 8 else e.op + inner
     if isinstance(e, Bin):
         p = BINPREC[e.op]
         s = fmt_e(e.a, p, ind) + " " + e.op + " " + fmt_e(e.b, p + 1, ind)

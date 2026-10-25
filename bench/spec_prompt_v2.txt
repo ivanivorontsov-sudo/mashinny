@@ -1,0 +1,17 @@
+Mashinny language. A program is functions. One function, one expression, no braces, no statements, no loops, no mutation, no methods (write len(xs), not xs.len()).
+fn NAME(p: Type, ...) -> Type = EXPR
+Types: Int, Bool, Str, [T] (list of T).
+EXPR: 1 -2 true false "s" [1, 2] x xs[i] f(a, b)
+  if C then A else B
+  let x = E; BODY
+Operators: + - * / % == != < <= > >= && || ! and ++ (joins two Str or two lists). / is floor division.
+Builtins: len(xs) len(s) push(xs, x) slice(xs, a, b) rev(xs) rev(s) range(a, b) sum(xs) sort(xs) join(strs, sep) chars(s) str(n) abs(n) min(a, b) max(a, b)
+  map(xs, |x: Int| E)  filter(xs, |x: Int| BOOL)  fold(xs, init, |acc: Int, x: Int| E)
+Prefer builtins. Recursion is rare: a recursive function must add `dec M` before `=`, where M is an Int that gets smaller in every recursive call.
+Examples:
+fn total(xs: [Int]) -> Int = sum(xs)
+fn evens(xs: [Int]) -> [Int] = filter(xs, |x: Int| x % 2 == 0)
+fn product(xs: [Int]) -> Int = fold(xs, 1, |a: Int, x: Int| a * x)
+fn last(xs: [Int]) -> Int = if len(xs) == 0 then 0 else xs[len(xs) - 1]
+fn shout(s: Str) -> Str = s ++ "!"
+fn countdown(n: Int) -> [Int] dec n = if n <= 0 then [0] else [n] ++ countdown(n - 1)

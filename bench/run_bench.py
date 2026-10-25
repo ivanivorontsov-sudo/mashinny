@@ -21,7 +21,8 @@ from mash.grammar import gbnf
 from tasks import TASKS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SPEC = open(os.path.join(HERE, "spec_prompt.txt")).read()
+SPEC = open(os.path.join(HERE, os.environ.get("BENCH_SPEC", "spec_prompt_v2.txt"))).read()
+TAG = os.environ.get("BENCH_TAG", "")
 URL = os.environ.get("LLM_URL", "http://127.0.0.1:8091/completion")
 ENC = {n: tiktoken.get_encoding(n) for n in ("cl100k_base", "o200k_base")}
 
@@ -171,7 +172,7 @@ def main():
     bench_predict(out)
     if "--no-llm" not in sys.argv:
         bench_llm(out)
-    json.dump(out, open(os.path.join(HERE, "results.json"), "w"), ensure_ascii=False, indent=1)
+    json.dump(out, open(os.path.join(HERE, "results%s.json" % TAG), "w"), ensure_ascii=False, indent=1)
     summarize(out)
 
 
@@ -193,7 +194,7 @@ def summarize(out):
         lines.append("%s: syntax-valid %d/%d, type-valid %d/%d, pass %d/%d, pass after 1 repair %d/%d, gen tokens %d" % (
             mode, valid, n, typed, n, c("status", "pass"), n, c("after_repair", "pass"), n, sum(r["gen_tokens"] for r in res)))
     s = "\n".join(lines)
-    open(os.path.join(HERE, "results.txt"), "w").write(s + "\n")
+    open(os.path.join(HERE, "results%s.txt" % TAG), "w").write(s + "\n")
     print(s)
 
 

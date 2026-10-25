@@ -190,7 +190,12 @@ def main(argv=None):
 
 def entry():
     sys.setrecursionlimit(200000)
-    threading.stack_size(512 * 1024 * 1024)
+    for mb in (512, 256, 128, 64):
+        try:
+            threading.stack_size(mb * 1024 * 1024)
+            break
+        except (ValueError, RuntimeError):
+            continue
     box = {}
     t = threading.Thread(target=lambda: box.setdefault("rc", main()))
     t.start()

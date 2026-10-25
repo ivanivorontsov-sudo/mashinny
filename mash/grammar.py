@@ -16,7 +16,8 @@ cmpop ::= "==" | "!=" | "<=" | ">=" | "<" | ">"
 cat ::= add (ws "++" ws add)*
 add ::= mul (ws [-+] ws mul)*
 mul ::= un (ws [*/%] ws un)*
-un ::= [-!] ws un | atom
+un ::= [-!] ws un | post
+post ::= atom (ws "[" ws expr ws "]")*
 atom ::= int | str | "true" | "false" | "unit" | "(" ws expr ws ")" | "[" ws (expr (ws "," ws expr)*)? ws "]" | ident ws "(" ws (expr (ws "," ws expr)*)? ws ")" | ident
 int ::= "0" | [1-9] [0-9]{0,30}
 str ::= "\"" ([^"\\\n] | "\\" ["\\nt])* "\""

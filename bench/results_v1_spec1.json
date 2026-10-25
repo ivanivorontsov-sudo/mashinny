@@ -1,0 +1,839 @@
+{
+ "tokens": [
+  {
+   "task": "sum_squares",
+   "mash": {
+    "cl100k_base": 25,
+    "o200k_base": 25
+   },
+   "mash_compact": {
+    "cl100k_base": 17,
+    "o200k_base": 18
+   },
+   "python": {
+    "cl100k_base": 21,
+    "o200k_base": 21
+   },
+   "mash_bytes": 60,
+   "python_bytes": 67
+  },
+  {
+   "task": "count_even",
+   "mash": {
+    "cl100k_base": 29,
+    "o200k_base": 29
+   },
+   "mash_compact": {
+    "cl100k_base": 20,
+    "o200k_base": 21
+   },
+   "python": {
+    "cl100k_base": 28,
+    "o200k_base": 28
+   },
+   "mash_bytes": 68,
+   "python_bytes": 77
+  },
+  {
+   "task": "max_list",
+   "mash": {
+    "cl100k_base": 46,
+    "o200k_base": 46
+   },
+   "mash_compact": {
+    "cl100k_base": 33,
+    "o200k_base": 33
+   },
+   "python": {
+    "cl100k_base": 21,
+    "o200k_base": 21
+   },
+   "mash_bytes": 108,
+   "python_bytes": 65
+  },
+  {
+   "task": "reverse_str",
+   "mash": {
+    "cl100k_base": 14,
+    "o200k_base": 14
+   },
+   "mash_compact": {
+    "cl100k_base": 11,
+    "o200k_base": 11
+   },
+   "python": {
+    "cl100k_base": 15,
+    "o200k_base": 15
+   },
+   "mash_bytes": 35,
+   "python_bytes": 45
+  },
+  {
+   "task": "palindrome",
+   "mash": {
+    "cl100k_base": 17,
+    "o200k_base": 17
+   },
+   "mash_compact": {
+    "cl100k_base": 13,
+    "o200k_base": 13
+   },
+   "python": {
+    "cl100k_base": 17,
+    "o200k_base": 17
+   },
+   "mash_bytes": 41,
+   "python_bytes": 51
+  },
+  {
+   "task": "factorial",
+   "mash": {
+    "cl100k_base": 37,
+    "o200k_base": 37
+   },
+   "mash_compact": {
+    "cl100k_base": 26,
+    "o200k_base": 26
+   },
+   "python": {
+    "cl100k_base": 37,
+    "o200k_base": 37
+   },
+   "mash_bytes": 77,
+   "python_bytes": 94
+  },
+  {
+   "task": "fib",
+   "mash": {
+    "cl100k_base": 60,
+    "o200k_base": 60
+   },
+   "mash_compact": {
+    "cl100k_base": 45,
+    "o200k_base": 46
+   },
+   "python": {
+    "cl100k_base": 42,
+    "o200k_base": 42
+   },
+   "mash_bytes": 117,
+   "python_bytes": 102
+  },
+  {
+   "task": "gcd",
+   "mash": {
+    "cl100k_base": 46,
+    "o200k_base": 46
+   },
+   "mash_compact": {
+    "cl100k_base": 32,
+    "o200k_base": 31
+   },
+   "python": {
+    "cl100k_base": 32,
+    "o200k_base": 32
+   },
+   "mash_bytes": 105,
+   "python_bytes": 84
+  },
+  {
+   "task": "count_char",
+   "mash": {
+    "cl100k_base": 29,
+    "o200k_base": 29
+   },
+   "mash_compact": {
+    "cl100k_base": 23,
+    "o200k_base": 24
+   },
+   "python": {
+    "cl100k_base": 19,
+    "o200k_base": 19
+   },
+   "mash_bytes": 75,
+   "python_bytes": 56
+  },
+  {
+   "task": "clamp",
+   "mash": {
+    "cl100k_base": 27,
+    "o200k_base": 27
+   },
+   "mash_compact": {
+    "cl100k_base": 20,
+    "o200k_base": 20
+   },
+   "python": {
+    "cl100k_base": 27,
+    "o200k_base": 27
+   },
+   "mash_bytes": 66,
+   "python_bytes": 75
+  },
+  {
+   "task": "double_all",
+   "mash": {
+    "cl100k_base": 26,
+    "o200k_base": 26
+   },
+   "mash_compact": {
+    "cl100k_base": 19,
+    "o200k_base": 20
+   },
+   "python": {
+    "cl100k_base": 23,
+    "o200k_base": 23
+   },
+   "mash_bytes": 57,
+   "python_bytes": 70
+  },
+  {
+   "task": "positives",
+   "mash": {
+    "cl100k_base": 26,
+    "o200k_base": 26
+   },
+   "mash_compact": {
+    "cl100k_base": 19,
+    "o200k_base": 20
+   },
+   "python": {
+    "cl100k_base": 25,
+    "o200k_base": 25
+   },
+   "mash_bytes": 60,
+   "python_bytes": 75
+  },
+  {
+   "task": "digit_sum",
+   "mash": {
+    "cl100k_base": 41,
+    "o200k_base": 41
+   },
+   "mash_compact": {
+    "cl100k_base": 29,
+    "o200k_base": 29
+   },
+   "python": {
+    "cl100k_base": 21,
+    "o200k_base": 21
+   },
+   "mash_bytes": 94,
+   "python_bytes": 65
+  },
+  {
+   "task": "power",
+   "mash": {
+    "cl100k_base": 45,
+    "o200k_base": 45
+   },
+   "mash_compact": {
+    "cl100k_base": 31,
+    "o200k_base": 31
+   },
+   "python": {
+    "cl100k_base": 19,
+    "o200k_base": 19
+   },
+   "mash_bytes": 99,
+   "python_bytes": 52
+  },
+  {
+   "task": "is_prime",
+   "mash": {
+    "cl100k_base": 40,
+    "o200k_base": 40
+   },
+   "mash_compact": {
+    "cl100k_base": 28,
+    "o200k_base": 29
+   },
+   "python": {
+    "cl100k_base": 29,
+    "o200k_base": 29
+   },
+   "mash_bytes": 90,
+   "python_bytes": 81
+  },
+  {
+   "task": "join_comma",
+   "mash": {
+    "cl100k_base": 26,
+    "o200k_base": 26
+   },
+   "mash_compact": {
+    "cl100k_base": 21,
+    "o200k_base": 21
+   },
+   "python": {
+    "cl100k_base": 23,
+    "o200k_base": 23
+   },
+   "mash_bytes": 67,
+   "python_bytes": 73
+  },
+  {
+   "task": "abs_diff",
+   "mash": {
+    "cl100k_base": 20,
+    "o200k_base": 20
+   },
+   "mash_compact": {
+    "cl100k_base": 13,
+    "o200k_base": 13
+   },
+   "python": {
+    "cl100k_base": 20,
+    "o200k_base": 20
+   },
+   "mash_bytes": 47,
+   "python_bytes": 56
+  },
+  {
+   "task": "mean_floor",
+   "mash": {
+    "cl100k_base": 30,
+    "o200k_base": 30
+   },
+   "mash_compact": {
+    "cl100k_base": 23,
+    "o200k_base": 23
+   },
+   "python": {
+    "cl100k_base": 25,
+    "o200k_base": 25
+   },
+   "mash_bytes": 77,
+   "python_bytes": 76
+  },
+  {
+   "task": "sorted_desc",
+   "mash": {
+    "cl100k_base": 17,
+    "o200k_base": 17
+   },
+   "mash_compact": {
+    "cl100k_base": 13,
+    "o200k_base": 13
+   },
+   "python": {
+    "cl100k_base": 19,
+    "o200k_base": 19
+   },
+   "mash_bytes": 47,
+   "python_bytes": 75
+  },
+  {
+   "task": "running_sum",
+   "mash": {
+    "cl100k_base": 38,
+    "o200k_base": 38
+   },
+   "mash_compact": {
+    "cl100k_base": 29,
+    "o200k_base": 29
+   },
+   "python": {
+    "cl100k_base": 40,
+    "o200k_base": 40
+   },
+   "mash_bytes": 91,
+   "python_bytes": 127
+  }
+ ],
+ "predict": {
+  "programs_runs": 357,
+  "predict_equals_run": 357,
+  "aot_runs": 40,
+  "aot_equals_predict": 40,
+  "python_set_iteration_distinct_outputs_over_20_hash_seeds": 20
+ },
+ "llm": {
+  "mash_free": [
+   {
+    "task": "sum_squares",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 52,
+    "seconds": 6.9,
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs.len() > 0\n  dec xs.len()\n  = fold(xs, 0, |a: Int, x: Int| a + x * x)\n"
+   },
+   {
+    "task": "count_even",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 60,
+    "seconds": 5.1,
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs.len() > 0\n  dec xs.len()\n  = fold(xs, 0, |a: Int, x: Int| a + (x % 2 == 0) as Int)\n"
+   },
+   {
+    "task": "max_list",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 69,
+    "seconds": 5.9,
+    "code": "fn solve(xs: [Int]) -> Int {\n    if xs.is_empty() {\n        0\n    } else {\n        let mut max = xs[0];\n        for &x in xs.iter() {\n            if x > max {\n                max = x;\n            }\n        }\n        max\n    }\n}\n"
+   },
+   {
+    "task": "reverse_str",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 28,
+    "seconds": 2.5,
+    "code": "fn solve(s: Str) -> Str\n  pre true\n  dec 1\n  = rev(s)\n"
+   },
+   {
+    "task": "palindrome",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 66,
+    "seconds": 5.7,
+    "code": "fn solve(s: Str) -> Bool\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then true else s[0] == s[len(s) - 1] && solve(s[1..len(s) - 1])\n"
+   },
+   {
+    "task": "factorial",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 44,
+    "seconds": 4.0,
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 1 else n * solve(n - 1)\n"
+   },
+   {
+    "task": "fib",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 58,
+    "seconds": 5.0,
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 0 else if n == 1 then 1 else solve(n - 1) + solve(n - 2)\n"
+   },
+   {
+    "task": "gcd",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 55,
+    "seconds": 4.9,
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  dec b\n  = if a == 0 then b else solve(b % a, a)\n"
+   },
+   {
+    "task": "count_char",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 70,
+    "seconds": 5.9,
+    "code": "fn solve(s: Str, c: Str) -> Int\n  pre c.len() == 1\n  dec s.len()\n  = if s == \"\" then 0 else if s[0] == c then 1 + solve(s[1..], c) else solve(s[1..], c)\n"
+   },
+   {
+    "task": "clamp",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 50,
+    "seconds": 7.2,
+    "code": "fn solve(x: Int, lo: Int, hi: Int) -> Int\n  pre lo <= hi\n  dec x\n  = if x < lo then lo else if x > hi then hi else x\n"
+   },
+   {
+    "task": "double_all",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 32,
+    "seconds": 4.8,
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    map(xs, |x: Int| x * 2)\n}\n"
+   },
+   {
+    "task": "positives",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 52,
+    "seconds": 6.6,
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut result = Vec::new();\n    for x in xs {\n        if x > 0 {\n            result.push(x);\n        }\n    }\n    result\n}\n"
+   },
+   {
+    "task": "digit_sum",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 42,
+    "seconds": 6.4,
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = sum(map(n, |x: Int| x % 10))\n"
+   },
+   {
+    "task": "power",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 50,
+    "seconds": 4.3,
+    "code": "fn solve(b: Int, e: Int) -> Int\n  pre e >= 0\n  dec e\n  = if e == 0 then 1 else b * solve(b, e - 1)\n"
+   },
+   {
+    "task": "is_prime",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 80,
+    "seconds": 6.8,
+    "code": "fn solve(n: Int) -> Bool\n  pre n >= 2\n  dec n\n  = if n == 2 then true else if n % 2 == 0 then false else all(xs: [Int], |x: Int| x != 2 && x != n && n % x != 0) && solve(n - 1)\n"
+   },
+   {
+    "task": "join_comma",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 58,
+    "seconds": 5.0,
+    "code": "fn solve(xs: [Int]) -> Str {\n    let mut result = String::new();\n    for x in xs {\n        result.push_str(&str(x));\n        result.push(',');\n    }\n    result.pop(); // Remove the trailing comma\n    result\n}\n"
+   },
+   {
+    "task": "abs_diff",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 45,
+    "seconds": 4.0,
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  dec b\n  = abs(a - b)\n"
+   },
+   {
+    "task": "mean_floor",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 64,
+    "seconds": 5.5,
+    "code": "fn solve(xs: [Int]) -> Int {\n    if xs.is_empty() {\n        return 0;\n    }\n    let sum = xs.iter().sum::<Int>();\n    let count = xs.len();\n    let avg = sum / count;\n    return avg.floor() as Int;\n}\n"
+   },
+   {
+    "task": "sorted_desc",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 42,
+    "seconds": 3.5,
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut xs = xs;\n    xs.sort_by(|a, b| b.cmp(a));\n    xs\n}\n"
+   },
+   {
+    "task": "running_sum",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 56,
+    "seconds": 5.0,
+    "code": "fn solve(xs: [Int]) -> [Int] {\n    let mut result = Vec::new();\n    let mut sum = 0;\n    for x in xs {\n        sum += x;\n        result.push(sum);\n    }\n    result\n}\n"
+   }
+  ],
+  "mash_grammar": [
+   {
+    "task": "sum_squares",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 59,
+    "seconds": 5.4,
+    "code": "fn solve(xs: [Int]) -> Int\n  pre true\n  dec len(xs)\n  = if len(xs) == 0 then 0 else (xs || 0) * (xs || 0) + solve(slice(xs, 1, len(xs)))\n"
+   },
+   {
+    "task": "count_even",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 44,
+    "seconds": 3.8,
+    "code": "fn solve(xs: [Int]) -> Int\n  pre len(xs) > 0\n  dec len(xs)\n  = total(filter(xs, |x: Int| x % 2 == 0))\n"
+   },
+   {
+    "task": "max_list",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 42,
+    "seconds": 5.5,
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs != []\n  dec xs\n  = if len(xs) == 1 then xs else max(xs, solve(slice(xs, 1)))\n"
+   },
+   {
+    "task": "reverse_str",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 50,
+    "seconds": 4.2,
+    "code": "fn solve(s: Str) -> Str\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then s else solve(slice(s, 0, len(s) - 1))\n"
+   },
+   {
+    "task": "palindrome",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 41,
+    "seconds": 3.7,
+    "code": "fn solve(s: Str) -> Bool\n  pre len(s) > 0\n  dec len(s)\n  = if len(s) == 1 then true else s == rev(s)\n"
+   },
+   {
+    "task": "factorial",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 40,
+    "seconds": 3.4,
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 1 else n * solve(n - 1)\n"
+   },
+   {
+    "task": "fib",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 54,
+    "seconds": 4.7,
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = if n == 0 then 0 else if n == 1 then 1 else solve(n - 1) + solve(n - 2)\n"
+   },
+   {
+    "task": "gcd",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 47,
+    "seconds": 3.9,
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre a >= 0 && b >= 0\n  dec a\n  = if b == 0 then a else solve(b, a % b)\n"
+   },
+   {
+    "task": "count_char",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 50,
+    "seconds": 4.1,
+    "code": "fn solve(s: Str, c: Str) -> Int\n  pre c != \"\"\n  dec len(s)\n  = if len(s) == 0 then 0 else if s == c then 1 else solve(s, c)\n"
+   },
+   {
+    "task": "clamp",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 45,
+    "seconds": 3.8,
+    "code": "fn solve(x: Int, lo: Int, hi: Int) -> Int\n  pre lo <= hi\n  dec x\n  = if x < lo then lo else if x > hi then hi else x\n"
+   },
+   {
+    "task": "double_all",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 27,
+    "seconds": 2.4,
+    "code": "fn solve(xs: [Int]) -> [Int]\n  = map(xs, |x: Int| x * 2)\n"
+   },
+   {
+    "task": "positives",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 36,
+    "seconds": 3.1,
+    "code": "fn solve(xs: [Int]) -> [Int]\n  pre xs != []\n  dec xs\n  = filter(xs, |x: Int| x > 0)\n"
+   },
+   {
+    "task": "digit_sum",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 38,
+    "seconds": 3.2,
+    "code": "fn solve(n: Int) -> Int\n  pre n >= 0\n  dec n\n  = sum(map(n, |x: Int| x % 10))\n"
+   },
+   {
+    "task": "power",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 46,
+    "seconds": 3.9,
+    "code": "fn solve(b: Int, e: Int) -> Int\n  pre e >= 0\n  dec e\n  = if e == 0 then 1 else b * solve(b, e - 1)\n"
+   },
+   {
+    "task": "is_prime",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 256,
+    "seconds": 20.2,
+    "code": "fn solve(n: Int) -> Bool\n  pre n > 0\n  dec n\n  = if n == 2 then true else if n % 2 == 0 then false else if n == 3 then true else if n % 3 == 0 then false else if n == 5 then true else if n % 5 == 0 then false else if n == 7 then true else if n % 7 == 0 then false else if n == 11 then true else if n % 11 == 0 then false else if n == 13 then true else if n % 13 == 0 then false else if n == 17 then true else if n % 17 == 0 then false else if n == 19 then true else if n % 19 == 0 then false else if n == 23 then true else if n % 23 == 0 then false else if n == 29 then true else if n % 29 == 0 then false else if n == 31 then true else if n % 31 == 0 then false else if n == 37 then true else if n\n"
+   },
+   {
+    "task": "join_comma",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 28,
+    "seconds": 2.5,
+    "code": "fn solve(xs: [Int]) -> Str\n  = join(chars(map(xs, |x: Int| str(x))), \",\")\n"
+   },
+   {
+    "task": "abs_diff",
+    "status": "wrong",
+    "after_repair": "wrong",
+    "gen_tokens": 44,
+    "seconds": 3.6,
+    "code": "fn solve(a: Int, b: Int) -> Int\n  pre abs(a) >= abs(b)\n  dec a\n  = if a == b then 0 else abs(a) - abs(b)\n"
+   },
+   {
+    "task": "mean_floor",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 53,
+    "seconds": 4.5,
+    "code": "fn solve(xs: [Int]) -> Int\n  pre xs != []\n  dec len(xs)\n  = if len(xs) == 1 then xs(0) else (xs(0) + solve(slice(xs, 1))) / len(xs)\n"
+   },
+   {
+    "task": "sorted_desc",
+    "status": "type",
+    "after_repair": "type",
+    "gen_tokens": 68,
+    "seconds": 6.1,
+    "code": "fn solve(xs: [Int]) -> [Int]\n  pre true\n  dec len(xs)\n  = if len(xs) == 0 then []\n  else let max = max(xs)\n        ==[max] ++ solve(slice(xs, 0, len(xs) - 1))  ; 100% pure\n"
+   },
+   {
+    "task": "running_sum",
+    "status": "syntax",
+    "after_repair": "syntax",
+    "gen_tokens": 256,
+    "seconds": 20.1,
+    "code": "fn solve(xs: [Int]) -> [Int]\n  pre len(xs) > 0\n  dec len(xs)\n  = let acc = 0\n    == [acc]\n    == [acc + xs(0)]\n    == [acc + xs(0) + xs(1)]\n    == [acc + xs(0) + xs(1) + xs(2)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5) + xs(6)]\n    == [acc + xs(0) + xs(1) + xs(2) + xs(3) + xs(4) + xs(5) + xs(6) + xs\n"
+   }
+  ],
+  "python": [
+   {
+    "task": "sum_squares",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 26,
+    "seconds": 2.3,
+    "code": "def solve(xs: list[int]) -> int:\n    return sum(x**2 for x in xs)\n"
+   },
+   {
+    "task": "count_even",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 33,
+    "seconds": 2.6,
+    "code": "def solve(xs: list[int]) -> int:\n    return sum(1 for x in xs if x % 2 == 0)\n"
+   },
+   {
+    "task": "max_list",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 26,
+    "seconds": 2.2,
+    "code": "def solve(xs: list[int]) -> int:\n    return max(xs) if xs else 0\n"
+   },
+   {
+    "task": "reverse_str",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 20,
+    "seconds": 1.6,
+    "code": "def solve(s: str) -> str:\n    return s[::-1]\n"
+   },
+   {
+    "task": "palindrome",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 22,
+    "seconds": 2.1,
+    "code": "def solve(s: str) -> bool:\n    return s == s[::-1]\n"
+   },
+   {
+    "task": "factorial",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 39,
+    "seconds": 3.2,
+    "code": "def solve(n: int) -> int:\n    if n == 0:\n        return 1\n    else:\n        return n * solve(n - 1)\n"
+   },
+   {
+    "task": "fib",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 80,
+    "seconds": 6.3,
+    "code": "def solve(n: int) -> int:\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        return b\n"
+   },
+   {
+    "task": "gcd",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 37,
+    "seconds": 3.0,
+    "code": "def solve(a: int, b: int) -> int:\n    while b:\n        a, b = b, a % b\n    return a\n"
+   },
+   {
+    "task": "count_char",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 24,
+    "seconds": 2.1,
+    "code": "def solve(s: str, c: str) -> int:\n    return s.count(c)\n"
+   },
+   {
+    "task": "clamp",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 32,
+    "seconds": 2.7,
+    "code": "def solve(x: int, lo: int, hi: int) -> int:\n    return max(lo, min(x, hi))\n"
+   },
+   {
+    "task": "double_all",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 28,
+    "seconds": 2.4,
+    "code": "def solve(xs: list[int]) -> list[int]:\n    return [x * 2 for x in xs]\n"
+   },
+   {
+    "task": "positives",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 30,
+    "seconds": 2.6,
+    "code": "def solve(xs: list[int]) -> list[int]:\n    return [x for x in xs if x > 0]\n"
+   },
+   {
+    "task": "digit_sum",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 27,
+    "seconds": 2.3,
+    "code": "def solve(n: int) -> int:\n    return sum(int(digit) for digit in str(n))\n"
+   },
+   {
+    "task": "power",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 24,
+    "seconds": 2.1,
+    "code": "def solve(b: int, e: int) -> int:\n    return b ** e\n"
+   },
+   {
+    "task": "is_prime",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 61,
+    "seconds": 4.7,
+    "code": "def solve(n: int) -> bool:\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n"
+   },
+   {
+    "task": "join_comma",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 24,
+    "seconds": 2.0,
+    "code": "def solve(xs: list[int]) -> str:\n    return ','.join(map(str, xs))\n"
+   },
+   {
+    "task": "abs_diff",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 25,
+    "seconds": 2.0,
+    "code": "def solve(a: int, b: int) -> int:\n    return abs(a - b)\n"
+   },
+   {
+    "task": "mean_floor",
+    "status": "wrong",
+    "after_repair": "pass",
+    "gen_tokens": 35,
+    "seconds": 2.9,
+    "code": "def solve(xs: list[int]) -> int:\n    if not xs:\n        return 0\n    return int(sum(xs) / len(xs))\n"
+   },
+   {
+    "task": "sorted_desc",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 24,
+    "seconds": 2.0,
+    "code": "def solve(xs: list[int]) -> list[int]:\n    return sorted(xs, reverse=True)\n"
+   },
+   {
+    "task": "running_sum",
+    "status": "pass",
+    "after_repair": "pass",
+    "gen_tokens": 33,
+    "seconds": 2.8,
+    "code": "def solve(xs: list[int]) -> list[int]:\n    return [sum(xs[:i+1]) for i in range(len(xs))]\n"
+   }
+  ]
+ }
+}

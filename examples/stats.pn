@@ -8,4 +8,4 @@ fn mean(xs: [Int]) -> Int
 
 fn median(xs: [Int]) -> Int
   pre len(xs) > 0
-  = get(sort(xs), len(xs) / 2)
+  = sort(xs)[len(xs) / 2]
