@@ -6,7 +6,7 @@ from .interp import Trap
 
 MAXDIM = 1 << 15
 BTN_BG, BTN_FG, BTN_BORDER, BTN_PAD = 0x3366CC, 0xFFFFFF, 0x1A3366, 6
-MISSING = (0x3F, 0x21, 0x21, 0x21, 0x21, 0x21, 0x21, 0x3F, 0, 0)
+MISSING = (0x3F, 0x21, 0x21, 0x21, 0x21, 0x21, 0x21, 0x21, 0x21, 0x3F, 0, 0)
 
 
 def glyph(ch):
@@ -212,3 +212,13 @@ def read_png(data):
     raw = zlib.decompress(idat)
     st = w * 4 + 1
     return w, h, b"".join(raw[y * st + 1:(y + 1) * st] for y in range(h))
+
+
+def from_show(j):
+    if isinstance(j, dict) and "ui" in j:
+        return ("ui", j["ui"]) + tuple(from_show(x) for x in j["args"])
+    if isinstance(j, dict) and "int" in j:
+        return int(j["int"])
+    if isinstance(j, list):
+        return tuple(from_show(x) for x in j)
+    return j

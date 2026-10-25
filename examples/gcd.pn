@@ -1,0 +1,8 @@
+fn gcd(a: Int, b: Int) -> Int
+  pre a >= 0 && b >= 0
+  post result >= 0
+  dec b
+  = if b == 0 then a else gcd(b, a % b)
+
+fn main() -> Int
+  = gcd(1071, 462)

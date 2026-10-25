@@ -1,0 +1,12 @@
+fn field(id: Str, label: Str, w: Int) -> Ui
+  = col(2, 0, -1, [text(id ++ "_label", label, 3355443, 1), rect(id, w, 18, 15724527)])
+
+fn form(w: Int) -> Ui
+  = let fw = max(80, w - 64);
+    col(8, 12, 16316664, [text("title", "Вход / Login", 1118481, 2), field("login", "Логин", fw), field("password", "Пароль", fw), row(8, 0, -1, [button("ok", "Войти"), button("cancel", "Отмена")])])
+
+fn popup(w: Int) -> Ui
+  = at(w / 2 - 70, 70, clip("popup", 140, 56, stack([rect("popup_bg", 140, 56, 16765286), col(6, 8, -1, [text("popup_title", "Caps Lock включён", 6697728, 1), button("popup_close", "OK")])])))
+
+fn view(w: Int, h: Int) -> Ui
+  = stack([rect("bg", w, h, 14540253), form(w), popup(w)])

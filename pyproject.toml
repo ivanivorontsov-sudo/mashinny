@@ -1,0 +1,21 @@
+[project]
+name = "mashinny"
+version = "0.1.0"
+description = "Машинный — язык программирования для ИИ"
+requires-python = ">=3.10"
+dependencies = ["z3-solver>=4.12"]
+license = {text = "MIT"}
+authors = [{name = "Иван Воронцов (автор идеи), сделано с помощью ИИ"}]
+
+[project.scripts]
+mash = "mash.cli:entry"
+
+[tool.setuptools]
+packages = ["mash"]
+
+[tool.setuptools.package-data]
+mash = ["runtime/*.h"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

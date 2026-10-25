@@ -51,6 +51,7 @@ class Machine:
     def tick(self, n=1):
         self.steps += n
         if self.steps > self.fuel:
+            self.steps = self.fuel
             raise Trap("T-FUEL", "step limit exhausted", {"fuel": self.fuel})
 
     def call_user(self, f, vals):

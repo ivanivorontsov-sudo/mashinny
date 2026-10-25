@@ -1,7 +1,12 @@
 import z3
 from .ast import *
 
-OPAQUE = object()
+class Op:
+    def __init__(self, name):
+        self.name = name
+
+
+OPAQUE = Op("?")
 
 
 class Prover:
@@ -43,7 +48,7 @@ class Prover:
                 return z3.Or(a, b)
             b = self.tr(e.b, env, pc, obl, path + "/right", cur, collect)
             if op in ("==", "!="):
-                if a is OPAQUE or b is OPAQUE:
+                if isinstance(a, (Op, tuple)) or isinstance(b, (Op, tuple)):
                     return self.fresh(BOOL, "eq")
                 return a == b if op == "==" else a != b
             if op == "++":
@@ -59,7 +64,7 @@ class Prover:
             c = self.tr(e.c, env, pc, obl, path + "/cond", cur, collect)
             x = self.tr(e.t, env, pc + [c], obl, path + "/then", cur, collect)
             y = self.tr(e.e, env, pc + [z3.Not(c)], obl, path + "/else", cur, collect)
-            if x is OPAQUE or y is OPAQUE:
+            if isinstance(x, (Op, tuple)) or isinstance(y, (Op, tuple)):
                 return OPAQUE
             return z3.If(c, x, y)
         if t is Let:
@@ -88,7 +93,7 @@ class Prover:
                     d_next = self.tr(cur.dec, genv, [], [], "", cur, False)
                     obl.append(("dec_decreases", path + "/" + e.fn, pc, d_next < d_now))
                 r = self.fresh(g.ret, "r_" + g.name)
-                if g.post is not None and r is not OPAQUE:
+                if g.post is not None and not isinstance(r, Op):
                     genv["result"] = r
                     post = self.tr(g.post, genv, [], [], "", g, False)
                     self.assume.append(post)
@@ -103,6 +108,12 @@ class Prover:
             if n == "len":
                 if isinstance(args[0], tuple) and args[0][0] == "list":
                     return z3.IntVal(args[0][1])
+                if isinstance(args[0], Op) and args[0] is not OPAQUE:
+                    key = id(args[0])
+                    if key not in self.lens:
+                        self.lens[key] = z3.Int("len_" + args[0].name)
+                        self.base.append(self.lens[key] >= 0)
+                    return self.lens[key]
                 r = self.fresh(INT, "len")
                 self.assume.append(r >= 0)
                 return r
@@ -133,8 +144,10 @@ class Prover:
         self.hint = hint
         out = []
         self.assume = []
-        self.penv = {n: (z3.Int(n) if t == INT else z3.Bool(n) if t == BOOL else OPAQUE) for n, t in f.params}
-        hyps = []
+        self.lens = {}
+        self.base = []
+        self.penv = {n: (z3.Int(n) if t == INT else z3.Bool(n) if t == BOOL else Op(n)) for n, t in f.params}
+        hyps = self.base
         if f.pre is not None:
             hyps.append(self.tr(f.pre, self.penv, [], [], "", f, False))
         obl = []
@@ -142,13 +155,13 @@ class Prover:
         if f.dec is not None:
             d = self.tr(f.dec, self.penv, [], [], "", f, False)
             obl.append(("dec_nonnegative", "fn " + f.name + "/dec", [], d >= 0))
-        if f.post is not None and body is not OPAQUE and not isinstance(body, tuple):
+        if f.post is not None and not isinstance(body, (Op, tuple)):
             env = dict(self.penv); env["result"] = body
             obl.append(("postcondition", "fn " + f.name + "/post", [], self.tr(f.post, env, [], [], "", f, False)))
         elif f.post is not None:
             out.append({"fn": f.name, "kind": "postcondition", "path": "fn " + f.name + "/post", "status": "unknown", "reason": "result type is not modelled (only Int/Bool)"})
         for kind, path, pc, goal in obl:
-            if goal is OPAQUE or not isinstance(goal, z3.ExprRef):
+            if isinstance(goal, Op) or not isinstance(goal, z3.ExprRef):
                 out.append({"fn": f.name, "kind": kind, "path": path, "status": "unknown", "reason": "not modelled"})
                 continue
             r = self.check(goal, pc, hyps + self.assume, {n for n, _ in f.params})

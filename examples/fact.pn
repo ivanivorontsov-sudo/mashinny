@@ -1,0 +1,9 @@
+fn fact(n: Int) -> Int
+  pre n >= 0
+  post result >= 1
+  dec n
+  = if n == 0 then 1 else n * fact(n - 1)
+
+fn main() -> Int !io
+  = let u = print("10! = " ++ str(fact(10)));
+    fact(25)

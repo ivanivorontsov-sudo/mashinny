@@ -65,7 +65,7 @@ def lev(a, b):
 
 def suggest(name, pool):
     best = sorted((lev(name, p), p) for p in pool)
-    if best and best[0][0] <= max(1, len(name) // 3):
+    if best and best[0][0] <= (1 if len(name) < 4 else 2 + len(name) // 6):
         return best[0][1]
     return None
 

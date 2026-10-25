@@ -1,0 +1,11 @@
+fn main() -> [Int]
+  = let xs = [5, 3, 9, 1, 7, 3];
+    [mean(xs), median(xs), fold(xs, 0, |m: Int, x: Int| max(m, x))]
+
+fn mean(xs: [Int]) -> Int
+  pre len(xs) > 0
+  = sum(xs) / len(xs)
+
+fn median(xs: [Int]) -> Int
+  pre len(xs) > 0
+  = get(sort(xs), len(xs) / 2)

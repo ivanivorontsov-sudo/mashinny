@@ -1,0 +1,5 @@
+fn fb(i: Int) -> Str
+  = if i % 15 == 0 then "FizzBuzz" else if i % 3 == 0 then "Fizz" else if i % 5 == 0 then "Buzz" else str(i)
+
+fn main() -> Unit !io
+  = print(join(map(range(1, 16), |i: Int| fb(i)), " "))

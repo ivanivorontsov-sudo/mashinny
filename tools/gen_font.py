@@ -1,32 +1,29 @@
-from PIL import Image, ImageDraw, ImageFont
+import sys
 
-SRC = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
-CHARS = [chr(c) for c in range(32, 127)] + [chr(c) for c in range(0x410, 0x450)] + ["Ё", "ё", "№", "—", "«", "»", "…"]
-W, H, S = 6, 10, 8
+W, H = 6, 12
 
 
-def glyph(font, ch):
-    img = Image.new("L", (W * S, H * S), 0)
-    d = ImageDraw.Draw(img)
-    d.text((W * S // 2, H * S * 0.8), ch, font=font, fill=255, anchor="ms")
-    rows = []
-    for y in range(H):
-        bits = 0
-        for x in range(W):
-            tot = sum(img.getpixel((x * S + i, y * S + j)) for i in range(S) for j in range(S))
-            if tot > 255 * S * S * 0.42:
-                bits |= 1 << (W - 1 - x)
-        rows.append(bits)
-    return rows
-
-
-def main():
-    font = ImageFont.truetype(SRC, int(H * S * 0.9))
+def main(path):
+    glyphs, cur, bm = {}, None, None
+    for line in open(path, encoding="latin-1"):
+        p = line.split()
+        if not p:
+            continue
+        if p[0] == "ENCODING":
+            cur = int(p[1])
+        elif p[0] == "BITMAP":
+            bm = []
+        elif p[0] == "ENDCHAR":
+            if cur is not None and (cur < 0x500 or 0x2010 <= cur <= 0x2026 or cur == 0x2116) and len(bm) == H:
+                glyphs[cur] = tuple(int(r, 16) >> (len(r) * 4 - W) for r in bm)
+            bm = None
+        elif bm is not None:
+            bm.append(p[0])
     lines = ["GLYPH_W = %d" % W, "GLYPH_H = %d" % H, "GLYPHS = {"]
-    for ch in CHARS:
-        lines.append("    %r: %r," % (ch, tuple(glyph(font, ch))))
+    for c in sorted(glyphs):
+        lines.append("    %r: %r," % (chr(c), glyphs[c]))
     lines.append("}")
     open("mash/font_data.py", "w").write("\n".join(lines) + "\n")
 
 
-main()
+main(sys.argv[1])

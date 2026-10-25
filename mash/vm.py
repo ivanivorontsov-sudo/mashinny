@@ -121,6 +121,7 @@ class VM:
             if cost:
                 m.steps += cost
                 if m.steps > m.fuel:
+                    m.steps = m.fuel
                     raise Trap("T-FUEL", "step limit exhausted", {"fuel": m.fuel})
             pc += 1
             if op == PUSH:

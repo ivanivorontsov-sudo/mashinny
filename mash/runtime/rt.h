@@ -31,7 +31,7 @@ static void trap(const char *c) { g_trap = c; longjmp(g_jb, 1); }
 
 static void tick(int64_t n) {
     g_steps += n;
-    if (g_steps > g_fuel) trap("T-FUEL");
+    if (g_steps > g_fuel) { g_steps = g_fuel; trap("T-FUEL"); }
 }
 
 static V *mk(int t) { V *v = xm(sizeof(V)); memset(v, 0, sizeof(V)); v->t = t; return v; }

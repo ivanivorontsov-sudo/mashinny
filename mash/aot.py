@@ -147,8 +147,8 @@ class Gen:
     def run(self, entry):
         self.fn = {f.name: f for f in self.prog.funcs}
         ent = self.fn[entry]
-        if ent.params:
-            raise ValueError("aot: entry function must take no parameters")
+        if any(t != INT for _, t in ent.params):
+            raise ValueError("aot: entry parameters must be Int")
         parts = [self.func(f) for f in self.prog.funcs]
         out = [open(RT).read()]
         out += ["static V *L%d;" % i for i in range(len(self.lits))]
@@ -157,17 +157,21 @@ class Gen:
         init = "\n    ".join("L%d = %s;" % (i, x) for i, x in enumerate(self.lits))
         out.append('''int main(int argc, char **argv) {
     g_live = 1;
+    V *av[%d];
+    int na = 0;
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "--json")) { g_json = 1; g_live = 0; }
         else if (!strcmp(argv[i], "--fuel") && i + 1 < argc) g_fuel = atoll(argv[++i]);
+        else if (na < %d) av[na++] = iparse(argv[i]);
     }
+    if (na != %d) { fputs("expected %d integer arguments\\n", stderr); return 64; }
     %s
     if (setjmp(g_jb)) { finish(0, 0); return 2; }
-    V *r = f_%s();
+    V *r = f_%s(%s);
     finish(1, r);
     return 0;
 }
-''' % (init, entry))
+''' % (max(1, len(ent.params)), len(ent.params), len(ent.params), len(ent.params), init, entry, ", ".join("av[%d]" % i for i in range(len(ent.params)))))
         return "\n".join(out)
 
 
