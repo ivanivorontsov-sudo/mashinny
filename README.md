@@ -79,3 +79,19 @@ python bench/run_bench.py --no-llm
 **Mashinny** is a programming language for AI agents. The canonical binary `.pnb` is the primary form; the canonical and compact texts are lossless views of it (one program = one byte sequence, strict decoder). Code is content-hashed (whole file, semantic and per function). Semantics are fully deterministic: bignum integers with a 4096-bit cap, floor division, named traps, no unordered collections and explicit `!io` effects. Every program terminates: recursion needs a `dec` measure that Z3 proves, and every run has a fuel limit. `mash predict` returns the exact value, step count and effect log. Contracts (`pre`/`post`/`dec`) are proved with Z3, with counterexamples. Errors are structured JSON with fix hints. The GBNF grammar and the AST JSON schema support constrained decoding. A deterministic UI module gives exact layout, z-order, occlusion and hit-testing, plus bit-exact RGBA/PNG rendering for any screen size without a window. Three engines (reference interpreter, bytecode VM and native AOT via C) are cross-checked by tests.
 
 Idea: Ivan Vorontsov. Made with AI. License: MIT; font: Spleen (BSD-2, see `LICENSE-spleen.txt`).
+
+## Правовая информация и предупреждение об использовании
+
+Проект создавался с использованием инструментов искусственного интеллекта (ИИ). Автор не гарантирует, что лично проверил каждую строку кода, все функции, сценарии работы и результаты сборки. В программе могут оставаться ошибки, уязвимости, неполные реализации и несовместимости.
+
+Исходный код находится в этом репозитории и открыт для самостоятельного изучения. Перед использованием, сборкой, установкой или распространением самостоятельно проверьте исходники, проведите необходимые тесты и, если это важно для вашей задачи, независимый аудит. Не используйте проект в критически важных системах без соответствующей проверки и подготовки.
+
+Материалы предоставляются «КАК ЕСТЬ» (AS IS), без каких-либо гарантий, в максимально допустимой применимым законодательством степени. Автор не несёт ответственности за ущерб, возникший вследствие использования, невозможности использования, ошибок или изменений проекта, кроме случаев, когда такое ограничение запрещено законом. Ничто в этом уведомлении не ограничивает права, которые не могут быть ограничены применимым законодательством.
+
+Пользователь самостоятельно отвечает за соблюдение законодательства, условий лицензий проекта и его зависимостей, а также прав третьих лиц. Публикация исходников не означает передачу прав на сторонние компоненты, товарные знаки или материалы.
+
+## Поддержать автора
+
+Перевод на карту Сбербанка: **2202 2085 2800 0566**.
+
+Перед переводом проверьте имя получателя и реквизиты в приложении банка. Добровольная поддержка не является оплатой гарантированной услуги или обещанием конкретного результата.
